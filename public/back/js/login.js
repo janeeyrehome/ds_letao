@@ -1,40 +1,52 @@
 /**
  * Created by STAR on 2018-03-02.
  */
-//Ê¹ÓÃ±íµ¥Ğ£Ñé²å¼ş
-$(formSelector).bootstrapValidator({
-    //1. Ö¸¶¨²»Ğ£ÑéµÄÀàĞÍ£¬Ä¬ÈÏÎª[':disabled', ':hidden', ':not(:visible)'],¿ÉÒÔ²»ÉèÖÃ
-    excluded: [':disabled', ':hidden', ':not(:visible)'],
 
-    //2. Ö¸¶¨Ğ£ÑéÊ±µÄÍ¼±êÏÔÊ¾£¬Ä¬ÈÏÊÇbootstrap·ç¸ñ
-    feedbackIcons: {
-        valid: 'glyphicon glyphicon-ok',
-        invalid: 'glyphicon glyphicon-remove',
-        validating: 'glyphicon glyphicon-refresh'
-    },
 
-    //3. Ö¸¶¨Ğ£Ñé×Ö¶Î
-    fields: {
-        //Ğ£ÑéÓÃ»§Ãû£¬¶ÔÓ¦name±íµ¥µÄnameÊôĞÔ
-        username: {
-            validators: {
-                //²»ÄÜÎª¿Õ
-                notEmpty: {
-                    message: 'ÓÃ»§Ãû²»ÄÜÎª¿Õ'
-                },
-                //³¤¶ÈĞ£Ñé
-                stringLength: {
-                    min: 2,
-                    max: 6,
-                    message: 'ÓÃ»§Ãû³¤¶È±ØĞëÔÚ6µ½30Ö®¼ä'
-                },
-                //ÕıÔòĞ£Ñé
-                regexp: {
-                    regexp: /^[a-zA-Z0-9_\.]+$/,
-                    message: 'ÓÃ»§ÃûÓÉÊı×Ö×ÖÄ¸ÏÂ»®ÏßºÍ.×é³É'
+
+
+$(function(){
+    $("form").bootstrapValidator({
+        //3. æŒ‡å®šæ ¡éªŒå­—æ®µ
+        fields: {
+            //æ ¡éªŒç”¨æˆ·åï¼Œå¯¹åº”nameè¡¨å•çš„nameå±æ€§
+            username: {
+                validators: {
+                    //ä¸èƒ½ä¸ºç©º
+                    notEmpty: {
+                        message: 'ç”¨æˆ·åä¸èƒ½ä¸ºç©º'
+                    },
+                    //é•¿åº¦æ ¡éªŒ
+                    stringLength: {
+                        min: 2,
+                        max: 8,
+                        message: 'ç”¨æˆ·åé•¿åº¦å¿…é¡»åœ¨2åˆ°8ä¹‹é—´'
+                    },
+
+                }
+            },
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: 'å¯†ç ä¸èƒ½ä¸ºç©º'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'å¯†ç å¿…é¡»åœ¨6åˆ°12ä¹‹é—´'
+                    },
                 }
             }
         },
-    }
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
 
+
+
+    });
 });
+
+
