@@ -6,6 +6,8 @@
 
 
 $(function(){
+
+    //表单校验成功
     $("form").bootstrapValidator({
         //3. 指定校验字段
         fields: {
@@ -43,10 +45,39 @@ $(function(){
             invalid: 'glyphicon glyphicon-remove',
             validating: 'glyphicon glyphicon-refresh'
         },
-
-
-
     });
+
+    //阻止表单默认提交
+    $("form").on('success.form.bv', function (e) {
+        e.preventDefault();
+        //使用ajax提交逻辑
+
+
+        //通过ajax提交表单
+        $.ajax({
+            type:'post',
+            url:'/employee/employeeLogin',
+            //通过表单序列化拼接字符串
+            data:$("form").serialize(),
+            success:function(info){
+                console.log(info);
+
+                if(info.error === 1000){
+                    alert('用户名错误');
+                }
+                if(info.error === 1001){
+                    alert('密码错误');
+                }
+                if(info.success){
+                    location.href = "index.html";
+                }
+            }
+        });
+    });
+
+
+
+
 });
 
 
