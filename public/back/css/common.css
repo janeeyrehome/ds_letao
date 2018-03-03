@@ -27,9 +27,11 @@ a, a:link, a:visited, a:hover, a:active {
     position: absolute;
     top:0;
     left:0;
-
+    transition: all 1s;
 }
-
+.lt_aside.now{
+    left: -180px;
+}
 
 .lt_aside .brand a{
     display: block;
@@ -61,6 +63,12 @@ a, a:link, a:visited, a:hover, a:active {
     color:#fff;
     border-left: 3px solid transparent;
 }
+.lt_aside .nav a.now{
+     border-left-color: #069;
+     background-color: #1d1f21;
+     color: #fff;
+ }
+
 .lt_aside .nav a:hover{
     background-color: #1d1f21;
     border-color: #069;
@@ -75,6 +83,10 @@ a, a:link, a:visited, a:hover, a:active {
     height: 100%;
     /*background-color: red;*/
     padding-left: 180px;
+    transition: all 1s;
+}
+.lt_main.now{
+    padding-left: 0px;
 }
 .lt_main .lt_head{
     height: 50px;
