@@ -24,7 +24,9 @@ $(function(){
                         max: 8,
                         message: '用户名长度必须在2到8之间'
                     },
-
+                   callback:{
+                       message:'用户名错误'
+                   }
                 }
             },
             password: {
@@ -37,6 +39,9 @@ $(function(){
                         max: 30,
                         message: '密码必须在6到12之间'
                     },
+                    callback:{
+                        message:'密码错误'
+                    }
                 }
             }
         },
@@ -63,21 +68,23 @@ $(function(){
                 console.log(info);
 
                 if(info.error === 1000){
-                    alert('用户名错误');
+                    $("form").data('bootstrapValidator').updateStatus("username","INVALID","callback");
                 }
                 if(info.error === 1001){
-                    alert('密码错误');
+                    $("form").data('bootstrapValidator').updateStatus("password","INVALID","callback");
                 }
                 if(info.success){
-                    location.href = "index.html";
+                    //location.href = "index.html";
                 }
             }
         });
     });
 
 
-
-
+     //重置表单清楚所有的样式
+    $("[type='reset']").on('click',function(){
+        $("form").data('bootstrapValidator').resetForm();
+    })
 });
 
 
