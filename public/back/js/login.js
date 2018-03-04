@@ -65,7 +65,7 @@ $(function(){
             //通过表单序列化拼接字符串
             data:$("form").serialize(),
             success:function(info){
-                console.log(info);
+                //console.log(info);
 
                 if(info.error === 1000){
                     $("form").data('bootstrapValidator').updateStatus("username","INVALID","callback");
@@ -74,7 +74,7 @@ $(function(){
                     $("form").data('bootstrapValidator').updateStatus("password","INVALID","callback");
                 }
                 if(info.success){
-                    //location.href = "index.html";
+                    location.href = "index.html";
                 }
             }
         });
