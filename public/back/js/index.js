@@ -3,7 +3,7 @@
  */
 $(function(){
     var myChart = echarts.init(document.querySelector('.charts_1'));
-    var myChart1 = echarts.init(document.querySelector('.charts_2'));
+    var myChart2 = echarts.init(document.querySelector('.charts_2'));
 
     // 指定图表的配置项和数据
     var option = {
@@ -67,5 +67,5 @@ $(function(){
 
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
-    myChart1.setOption(option1);
+    myChart2.setOption(option1);
 })
